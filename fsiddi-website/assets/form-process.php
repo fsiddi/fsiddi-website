@@ -2,14 +2,7 @@
 
 $errorMSG = "";
 
-// NAME
-if (empty($_POST["name"])) {
-    $errorMSG = "Name is required ";
-} else {
-    $name = $_POST["name"];
-}
-
-// EMAIL
+// Email
 if (empty($_POST["email"]) ) {
     $errorMSG .= "Email is required ";
 } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
@@ -18,7 +11,14 @@ if (empty($_POST["email"]) ) {
     $email = $_POST["email"];
 }
 
-// MESSAGE
+// Subject
+if (empty($_POST["subject"])) {
+    $errorMSG = "Subject is required ";
+} else {
+    $subject = $_POST["subject"];
+}
+
+// Message
 if (empty($_POST["message"])) {
     $errorMSG .= "Message is required ";
 } else {
@@ -27,18 +27,10 @@ if (empty($_POST["message"])) {
 
 
 $EmailTo = "francesco.siddi@gmail.com";
-$Subject = "Contact via fsiddi.com";
 $ServerSender = "contact@fsiddi.com";
 
 // prepare email body text
 $Body = "";
-$Body .= "Name: ";
-$Body .= $name;
-$Body .= "\n";
-$Body .= "Email: ";
-$Body .= $email;
-$Body .= "\n";
-$Body .= "Message: ";
 $Body .= $message;
 $Body .= "\n";
 
@@ -46,7 +38,7 @@ $Headers = "From: " . $ServerSender . "\r\n";
 $Headers .= "Reply-To: " . $email . "\r\n";
 
 // send email
-$success = mail($EmailTo, $Subject, $Body, $Headers);
+$success = mail($EmailTo, $subject, $Body, $Headers);
 
 // redirect to success page
 if ($success && $errorMSG == ""){

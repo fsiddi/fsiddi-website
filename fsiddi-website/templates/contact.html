@@ -4,19 +4,21 @@
   {{ this.body }}
   <form role="form" id="contactForm" data-toggle="validator" class="shake">
       <div class="row">
-          <div class="form-group col-sm-6">
-              <label for="name" class="h4">Name</label>
-              <input type="text" class="form-control" id="name" placeholder="Enter name" required data-error="">
-              <div class="help-block with-errors"></div>
-          </div>
-          <div class="form-group col-sm-6">
-              <label for="email" class="h4">Email</label>
+          <div class="form-group col-sm-12">
+              <label for="email">Your Email</label>
               <input type="email" class="form-control" id="email" placeholder="Enter email" required>
               <div class="help-block with-errors"></div>
           </div>
       </div>
+      <div class="row">
+          <div class="form-group col-sm-12">
+              <label for="subject">Subject</label>
+              <input type="text" class="form-control" id="subject" placeholder="Enter subject" required>
+              <div class="help-block with-errors"></div>
+          </div>
+      </div>
       <div class="form-group">
-          <label for="message" class="h4 ">Message</label>
+          <label for="message">Message</label>
           <textarea id="message" class="form-control" rows="5" placeholder="Enter your message" required></textarea>
           <div class="help-block with-errors"></div>
       </div>
