@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}Welcome{% endblock %} — fsiddi</title>
+
+    <!-- static or CDN files for CSS -->
+    <link rel="stylesheet" href="{{ '/static/css/bootstrap.min.css'|asseturl }}">
+    <link rel="stylesheet" href="{{ '/static/css/font-awesome.min.css'|asseturl }}">
+    <link href="//fonts.googleapis.com/css?family=Varela+Round:400,normal" rel="stylesheet" type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ '/static/css/folio.css'|asseturl }}">
+    <link rel="stylesheet" href="{{ '/static/css/font.borg.css'|asseturl }}">
+    <link rel="icon" type="image/png" href="{{ '/static/favicon/favicon.png'|url }}">
+
+    <!-- IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    {% block header %}
+    {% endblock %}
+  </head>
+
+  <body>
+
+    <!-- Begin page content -->
+    <div class="container">
+      <div class="page-header">
+        <div class="row">
+          <div class="col-md-8">
+            <a href="{{ '/film'|url }}" class="brand">
+              <h1>fsiddi</h1>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <div class="social-icons pull-right">
+            {% for link, icon in [
+              ['https://twitter.com/fsiddi', 'fa fa-twitter'],
+              ['https://www.linkedin.com/in/fsiddi', 'fa fa-linkedin']] %}
+              <a href="{{link}}" target="_blank" title="{{link}}">
+                <i class="{{icon}}"></i>
+              </a>
+            {% endfor %}
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p class="lead">My name is Francesco Siddi. I am a Technical Director at Blender Institute. I also develop web applications and film production tools.</p>
+
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-pills nav-justified">
+            {% for href, title in [
+              ['/film', 'Film'],
+              ['/software', 'Software'],
+              ['/other', 'Other'],
+              ['/contact', 'Contact']
+            ] %}
+              <li{% if this.is_child_of(href) %} class="active"{% endif
+                %}><a href="{{ href|url }}">{{ title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% block body %}{% endblock %}
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <p class="text-muted pull-right">&copy; Copyright 2016 by Francesco Siddi.</p>
+      </div>
+    </div>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+    {% if google_analytics_id and not config['AIRPLANE_MODE'] %}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', {{google_analytics_id}}, 'auto');
+      ga('send', 'pageview');
+    </script>
+    {% endif %}
+
+    {% block footer_scripts %}{% endblock %}
+
+  </body>
+</html>
+

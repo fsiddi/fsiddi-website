@@ -1,0 +1,30 @@
+{% macro render_category_nav(active=none) %}
+  <ul>
+  {% for category in site.query('/project-categories') %}
+    <li{% if category._id == active %} class="active"{% endif
+      %}><a href="{{ category|url }}">{{ category.name }}</a>
+  {% endfor %}
+  </ul>
+{% endmacro %}
+
+{% macro render_project_list(projects) %}
+
+  {% for project in projects %}
+    {% if loop.index is not divisibleby 2 %}
+    <div class="row">
+    {% endif %}
+      <div class="col-md-6 project-entry">
+      <a href="{{ project|url }}">
+        {% set image = project.attachments.images.first() %}
+        {% if image %}
+        <img class="img-responsive thumbnail" src="{{ image.thumbnail(560, 280, crop=True)|url }}">
+        {% endif %}
+        <h3>{{project.name}}</h3>
+      </a>
+      </div>
+    {% if loop.index is divisibleby 2 or loop.last %}
+    </div>
+    {% endif %}
+  {% endfor %}
+
+{% endmacro %}
