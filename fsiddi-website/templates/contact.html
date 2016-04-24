@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block body %}
+  {{ this.body }}
+  <form role="form" id="contactForm" data-toggle="validator" class="shake">
+      <div class="row">
+          <div class="form-group col-sm-6">
+              <label for="name" class="h4">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Enter name" required data-error="">
+              <div class="help-block with-errors"></div>
+          </div>
+          <div class="form-group col-sm-6">
+              <label for="email" class="h4">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+              <div class="help-block with-errors"></div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="message" class="h4 ">Message</label>
+          <textarea id="message" class="form-control" rows="5" placeholder="Enter your message" required></textarea>
+          <div class="help-block with-errors"></div>
+      </div>
+      <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Submit</button>
+      <div id="msgSubmit" class="h3 text-center hidden"></div>
+      <div class="clearfix"></div>
+  </form>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="{{ '/static/js/validator.min.js' | asseturl }}/"></script>
+  <script src="{{ '/static/js/form-scripts.js' | asseturl }}"></script>
+{% endblock %}

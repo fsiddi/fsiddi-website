@@ -1,2 +1,8 @@
 [project]
 name = fsiddi
+
+[servers.production]
+name = Production
+enabled = yes
+default = yes
+target = rsync://fsiddi@fsiddi.com/home/fsiddi/flask.fsiddi.com
