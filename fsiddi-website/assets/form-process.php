@@ -28,6 +28,7 @@ if (empty($_POST["message"])) {
 
 $EmailTo = "francesco.siddi@gmail.com";
 $Subject = "Contact via fsiddi.com";
+$ServerSender = "contact@fsiddi.com";
 
 // prepare email body text
 $Body = "";
@@ -41,8 +42,11 @@ $Body .= "Message: ";
 $Body .= $message;
 $Body .= "\n";
 
+$Headers = "From: " . $ServerSender . "\r\n";
+$Headers .= "Reply-To: " . $email . "\r\n";
+
 // send email
-$success = mail($EmailTo, $Subject, $Body, "From:".$email);
+$success = mail($EmailTo, $Subject, $Body, $Headers);
 
 // redirect to success page
 if ($success && $errorMSG == ""){
