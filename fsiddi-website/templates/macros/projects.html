@@ -22,7 +22,7 @@
         <h3>{{project.name}}</h3>
       </a>
       </div>
-    {% if loop.index is divisibleby 2 or loop.last %}
+    {% if (loop.index is divisibleby 2) or (loop.last) %}
     </div>
     {% endif %}
   {% endfor %}
