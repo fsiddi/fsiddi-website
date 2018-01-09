@@ -1,4 +1,4 @@
-RewriteEngine On
-# http to https redirect
-RewriteCond %{HTTPS} !=on
-RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
+# RewriteEngine On
+# http to https redirect, disabled since Cloudflare does it
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
