@@ -43,6 +43,7 @@ a:hover {
 
 .page-header {
   border-bottom-color: #AAA;
+  margin: 40px 0 10px;
 }
 
 .brand {
@@ -79,11 +80,11 @@ a:hover {
   background-color: transparent;
   color: #666;
   border-radius: 0;
+  padding: 10px 30px 10px 0;
 }
 
 .nav-pills>li>a:hover {
   color: #333;
-  border-bottom: 1px solid #AAA;
 }
 
 .nav-pills>li.active>a,
@@ -91,8 +92,16 @@ a:hover {
 .nav-pills>li.active>a:hover {
   background-color: transparent;
   color: #333;
-  border-bottom: 1px solid #999;
   border-radius: 0;
+}
+
+.lead {
+  margin-bottom: 35px;
+}
+
+.page-body {
+  line-height: 22px;
+  font-size: 14px;
 }
 
 h3 {

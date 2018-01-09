@@ -36,7 +36,7 @@
       <div class="page-header">
         <div class="row">
           <div class="col-md-8">
-            <a href="{{ '/film'|url }}" class="brand">
+            <a href="{{ '/'|url }}" class="brand">
               <h1>fsiddi</h1>
             </a>
           </div>
@@ -53,14 +53,14 @@
           </div>
         </div>
       </div>
-      <p class="lead">My name is Francesco Siddi. I am a Technical Director at Blender Institute. I also develop web applications and film production tools.</p>
+      {% block nav %}
       <div class="row">
         <div class="col-md-12">
-          <ul class="nav nav-pills nav-justified">
+          <ul class="nav nav-pills">
             {% for href, title in [
-              ['/film', 'Film'],
-              ['/software', 'Software'],
-              ['/other', 'Other'],
+              ['/', 'Featured'],
+              ['/archive', 'Archive'],
+              ['/about', 'About'],
               ['/contact', 'Contact']] 
             %}
             <li{% if this.is_child_of(href) %} class="active"{% endif %}>
@@ -70,12 +70,18 @@
           </ul>
         </div>
       </div>
-      {% block body %}{% endblock %}
+      {% endblock nav %}
+      <p class="lead">{% block lead %}{% endblock lead %}</p>
+      <div class="row">
+        <div class="col-md-12 page-body">
+          {% block body %}{% endblock %}
+        </div>
+      </div>
     </div>
 
     <div class="footer">
       <div class="container">
-        <p class="text-muted pull-right">&copy; 2008/2017 - fsiddi is Francesco Siddi</p>
+        <p class="text-muted pull-right">&copy; 2008/2018 - fsiddi is Francesco Siddi</p>
       </div>
     </div>
 
