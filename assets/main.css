@@ -1,0 +1,173 @@
+body {
+  background-color: #222222;
+  color: #FFFFFF;
+  font-family: 'IBM Plex Sans', sans-serif;
+  padding: 0 3em;
+  line-height: normal;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    padding: .5em 1em;
+  }
+}
+
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 3em;
+}
+
+h1 em {
+  font-weight: 200;
+}
+
+h1 a {
+  color: #d0d0d0;
+  text-decoration: none;
+}
+
+h1 a:hover {
+  color: #FFFFFF;
+}
+
+a {
+  color: #1da1f2;
+  text-decoration-style: dashed;
+}
+
+a:hover {
+  color: #43adf6;
+  text-decoration-style: dashed;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+@media only screen and (max-width: 1200px) {
+  .header {
+    display: block;
+  }
+}
+
+.navigation {
+  list-style: none;
+  padding-inline-start: 0;
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.navigation li {
+  display: inline;
+  font-size: 2em;
+}
+
+.navigation li.active {
+  font-weight: 600;
+}
+
+main p {
+  max-width: 50%;
+}
+
+@media only screen and (max-width: 1200px) {
+  main p {
+    max-width: 100%;
+  }
+}
+
+main p.lead {
+  font-size: 2em;
+  line-height: 1.3em;
+}
+
+main p {
+  font-size: 1.5em;
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+  padding-inline-start: 0;
+  margin-block-start: 5em;
+}
+
+.image-gallery > li {
+  flex: 1 1 auto; /* or flex: auto; */
+  flex-grow: 1;
+  height: 300px;
+  cursor: pointer;
+  position: relative;
+}
+
+.image-gallery.archive > li {
+  height: 200px;
+}
+
+.image-gallery li img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+
+.image-gallery::after {
+  content: "";
+  flex-grow: 999;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+
+
+}
+
+.overlay span {
+  color: #fff;
+  position: absolute;
+  bottom: .5em;
+  left: 1em;
+  background-color: rgba(54, 54, 54, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s;
+  padding: 0.3em;
+  border-radius: 4px;
+}
+
+
+/* hover */
+.image-gallery li:hover .overlay span {
+  opacity: 1;
+}
+
+@media only screen and (max-width: 400px) {
+  .image-gallery .overlay span {
+    opacity: 1;
+  }
+}
+
+footer {
+  padding: 2em 0;
+  color: #565656;
+  font-size: 0.8em;
+}
+
