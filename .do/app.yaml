@@ -1,0 +1,8 @@
+name: fsiddi-website
+static_sites:
+- environment_slug: html
+  github:
+    branch: master
+    deploy_on_push: true
+    repo: fsiddi/fsiddi-website
+  name: fsiddi-website
